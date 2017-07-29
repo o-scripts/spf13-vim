@@ -1,0 +1,93 @@
+" Airline setting
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#symbol = '!'
+let g:airline#extensions#tabline#fnamemod=':t'
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+"let g:airline#extensions#tabline#buffer_nr_show = 1
+nmap <leader>1 <Plug>AirlineSelectTab1
+nmap <leader>2 <Plug>AirlineSelectTab2
+nmap <leader>3 <Plug>AirlineSelectTab3
+nmap <leader>4 <Plug>AirlineSelectTab4
+nmap <leader>5 <Plug>AirlineSelectTab5
+nmap <leader>6 <Plug>AirlineSelectTab6
+nmap <leader>7 <Plug>AirlineSelectTab7
+nmap <leader>8 <Plug>AirlineSelectTab8
+nmap <leader>9 <Plug>AirlineSelectTab9
+nmap <leader>- <Plug>AirlineSelectPrevTab
+nmap <leader>+ <Plug>AirlineSelectNextTab
+nnoremap <C-k> :bn<CR>
+nnoremap <C-j> :bp<CR>
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" powerline symbols
+"let g:airline_powerline_flag=1
+if exists('g:airline_powerline_flag')
+  let g:airline_powerline_fonts = 1
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.readonly = ''
+  let g:airline_symbols.linenr = ''
+endif
+
+" tagbar setting
+let g:tagbar_width=30
+autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.lua call tagbar#autoopen()
+
+"cscope
+if has("cscope")
+    set csprg=/usr/bin/cscope
+    set csto=0
+    set cst
+    set nocsverb
+
+    " add any database in current directory
+    if filereadable("cscope.out")
+        cs add cscope.out
+    " else add database pointed to by environment
+    elseif $CSCOPE_DB != ""
+        cs add $CSCOPE_DB
+    endif
+
+    set csverb
+
+    nnoremap F :cs f c <C-R><C-W><CR>
+    nnoremap S :cs f s <C-R><C-W><CR>
+
+"    nmap <C-Space>s :scs find s <C-R>=expand("<cword>")<CR><CR>
+"    nmap <C-Space>g :scs find g <C-R>=expand("<cword>")<CR><CR>
+"    nmap <C-Space>c :scs find c <C-R>=expand("<cword>")<CR><CR>
+"    nmap <C-Space>t :scs find t <C-R>=expand("<cword>")<CR><CR>
+"    nmap <C-Space>e :scs find e <C-R>=expand("<cword>")<CR><CR>
+"    nmap <C-Space>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
+"    nmap <C-Space>i :scs find i <C-R>=expand("<cfile>")<CR><CR>
+"    nmap <C-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR>
+endif
+
+map <F2> <plug>NERDTreeTabsToggle<CR>
+map <silent> <F3> :TagbarToggle<CR>
+
+"sessionman
+let g:sessionman_save_threshold = 3
+
+"contrlp
+let g:ctrlp_by_filename = 1
+let g:ctrlp_lazy_update = 1
+
+"normal
+inoremap jk <Esc>jk
+nnoremap <S-l> $
+nnoremap <S-h> ^
+nnoremap <Leader>ff <C-w>>10
+nnoremap <Leader>aa <C-w><10
+nnoremap <Leader>f :/<C-R><C-W><CR>  
+nnoremap <Leader>g 1<C-g>
+set wrap
+set nolist
+set mouse=n
