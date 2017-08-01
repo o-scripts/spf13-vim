@@ -70,9 +70,12 @@ if has("cscope")
 "    nmap <C-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR>
 endif
 
-map <F2> <plug>NERDTreeTabsToggle<CR>
+map <silent> <F2> :NERDTreeTabsToggle<CR>
 map <silent> <F3> :TagbarToggle<CR>
 map <silent> <F4> :call BufferList()<CR>
+map <silent> <F5> :UndotreeToggle<CR>
+
+map <leader><space> :FixWhitespace<CR>
 
 "sessionman
 let g:sessionman_save_threshold = 3
@@ -87,7 +90,7 @@ nnoremap <S-l> $
 nnoremap <S-h> ^
 nnoremap <Leader>ff <C-w>>10
 nnoremap <Leader>aa <C-w><10
-nnoremap <Leader>f :/<C-R><C-W><CR>  
+nnoremap <Leader>f :/<C-R><C-W><CR>
 nnoremap <Leader>g 1<C-g>
 set wrap
 set nolist

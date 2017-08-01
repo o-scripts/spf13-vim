@@ -101,7 +101,9 @@
 
     " General {
         if count(g:spf13_bundle_groups, 'general')
-            Bundle 'JasonAi1989/vim-bear'
+            Bundle 'JasonAi1989/sessionman.vim'
+            Bundle 'JasonAi1989/vim-bufferlist'
+            Bundle 'bronson/vim-trailing-whitespace'
             Bundle 'dimasg/vim-mark'
             Bundle 'scrooloose/nerdtree'
             Bundle 'altercation/vim-colors-solarized'
@@ -113,8 +115,6 @@
             Bundle 'ctrlpvim/ctrlp.vim'
             Bundle 'tacahiroy/ctrlp-funky'
             Bundle 'terryma/vim-multiple-cursors'
-            Bundle 'JasonAi1989/sessionman.vim'
-            Bundle 'roblillack/vim-bufferlist'
             if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
                 Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
             elseif exists('g:spf13_use_powerline') && exists('g:spf13_use_old_powerline')
@@ -136,8 +136,8 @@
             Bundle 'mhinz/vim-signify'
             "Bundle 'tpope/vim-abolish.git'
             "Bundle 'osyo-manga/vim-over'
-            "Bundle 'kana/vim-textobj-user'
-            "Bundle 'kana/vim-textobj-indent'
+            Bundle 'kana/vim-textobj-user'
+            Bundle 'kana/vim-textobj-indent'
             Bundle 'gcmt/wildfire.vim'
         endif
     " }
