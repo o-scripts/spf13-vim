@@ -103,6 +103,7 @@
         if count(g:spf13_bundle_groups, 'general')
             Bundle 'JasonAi1989/sessionman.vim'
             Bundle 'JasonAi1989/vim-bufferlist'
+            Bundle 'JasonAi1989/vim-openf'
             Bundle 'bronson/vim-trailing-whitespace'
             Bundle 'dimasg/vim-mark'
             Bundle 'scrooloose/nerdtree'

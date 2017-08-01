@@ -74,8 +74,16 @@ map <silent> <F2> :NERDTreeTabsToggle<CR>
 map <silent> <F3> :TagbarToggle<CR>
 map <silent> <F4> :call BufferList()<CR>
 map <silent> <F5> :UndotreeToggle<CR>
+map <silent> <F6> :call OpenF()<CR>
 
 map <leader><space> :FixWhitespace<CR>
+
+map <Leader><Leader>j <Plug>(easymotion-j)
+map <Leader><Leader>k <Plug>(easymotion-k)
+map <Leader><leader>h <Plug>(easymotion-linebackward)
+map <Leader><leader>l <Plug>(easymotion-lineforward)
+map <Leader><leader>. <Plug>(easymotion-repeat)
+let g:EasyMotion_smartcase = 1
 
 "sessionman
 let g:sessionman_save_threshold = 3
