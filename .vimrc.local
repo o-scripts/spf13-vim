@@ -72,6 +72,7 @@ endif
 
 map <F2> <plug>NERDTreeTabsToggle<CR>
 map <silent> <F3> :TagbarToggle<CR>
+map <silent> <F4> :call BufferList()<CR>
 
 "sessionman
 let g:sessionman_save_threshold = 3
