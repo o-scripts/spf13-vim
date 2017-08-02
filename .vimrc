@@ -787,8 +787,8 @@
                     " <CR> accepts first, then sends the <CR>
                     inoremap <expr> <CR>    pumvisible() ? "\<C-y>\<CR>" : "\<CR>"
                     " <Down> and <Up> cycle like <Tab> and <S-Tab>
-                    inoremap <expr> <Down>  pumvisible() ? "\<C-n>" : "\<Down>"
-                    inoremap <expr> <Up>    pumvisible() ? "\<C-p>" : "\<Up>"
+                    "inoremap <expr> <Down>  pumvisible() ? "\<C-n>" : "\<Down>"
+                    "inoremap <expr> <Up>    pumvisible() ? "\<C-p>" : "\<Up>"
                     " Jump up and down the list
                     inoremap <expr> <C-d>   pumvisible() ? "\<PageDown>\<C-p>\<C-n>" : "\<C-d>"
                     inoremap <expr> <C-u>   pumvisible() ? "\<PageUp>\<C-p>\<C-n>" : "\<C-u>"
