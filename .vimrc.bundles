@@ -105,6 +105,7 @@
             Bundle 'JasonAi1989/vim-bufferlist'
             Bundle 'JasonAi1989/vim-openf'
             Bundle 'bronson/vim-trailing-whitespace'
+            Bundle 'junegunn/vim-easy-align'
             Bundle 'dimasg/vim-mark'
             Bundle 'scrooloose/nerdtree'
             Bundle 'altercation/vim-colors-solarized'

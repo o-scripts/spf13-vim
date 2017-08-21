@@ -93,6 +93,13 @@ let g:sessionman_save_threshold = 3
 let g:ctrlp_by_filename = 1
 let g:ctrlp_lazy_update = 1
 
+"more color for mark
+let g:mwDefaultHighlightingPalette = 'maximum'
+
+"easy align
+vmap <Leader>a <Plug>(EasyAlign)
+nmap <Leader>a <Plug>(EasyAlign)
+
 "normal
 inoremap jk <Esc>jk
 nnoremap <S-l> $
@@ -104,5 +111,4 @@ nnoremap <Leader>g 1<C-g>
 set wrap
 set nolist
 set mouse=n
-
-let g:mwDefaultHighlightingPalette = 'maximum'
+"set encoding=utf-8
