@@ -111,4 +111,4 @@ nnoremap <Leader>g 1<C-g>
 set wrap
 set nolist
 set mouse=n
-"set encoding=utf-8
+
