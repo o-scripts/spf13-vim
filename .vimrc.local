@@ -74,8 +74,9 @@ map <silent> <F2> :NERDTreeTabsToggle<CR>
 map <silent> <F3> :TagbarToggle<CR>
 map <silent> <F4> :call BufferList()<CR>
 map <silent> <F5> :UndotreeToggle<CR>
-map <silent> <F6> :call OpenF()<CR>
 map <silent> <F7> :call ChangeBasePath()<CR>
+map <silent> <F8> :call OpenF()<CR>
+map <leader>p :call OpenF()<CR>
 
 map <leader><space> :FixWhitespace<CR>
 
