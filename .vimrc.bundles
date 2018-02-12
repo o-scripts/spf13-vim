@@ -99,24 +99,48 @@
     "   let g:override_spf13_bundles = 1
     if !exists("g:override_spf13_bundles")
 
+    " Expend {
+        if count(g:spf13_bundle_groups, 'expand')
+            Bundle 'ctrlpvim/ctrlp.vim'
+            Bundle 'tacahiroy/ctrlp-funky'
+            Bundle 'terryma/vim-multiple-cursors'
+            "modify the surroundings
+            Bundle 'tpope/vim-surround'
+            Bundle 'flazz/vim-colorschemes'
+        endif
+    " }
+
     " General {
         if count(g:spf13_bundle_groups, 'general')
             Bundle 'JasonAi1989/sessionman.vim'
             Bundle 'JasonAi1989/vim-bufferlist'
+            "open a file in the specific path
             Bundle 'JasonAi1989/vim-openf'
+            Bundle 'JasonAi1989/cscope_maps.vim'
             Bundle 'bronson/vim-trailing-whitespace'
             Bundle 'junegunn/vim-easy-align'
+            Bundle 'altercation/vim-colors-solarized'
             Bundle 'dimasg/vim-mark'
             Bundle 'scrooloose/nerdtree'
-            Bundle 'altercation/vim-colors-solarized'
-            "Bundle 'spf13/vim-colors'
-            Bundle 'tpope/vim-surround'
+            Bundle 'jistr/vim-nerdtree-tabs'
             Bundle 'tpope/vim-repeat'
-            "Bundle 'rhysd/conflict-marker.vim'
             Bundle 'jiangmiao/auto-pairs'
-            Bundle 'ctrlpvim/ctrlp.vim'
-            Bundle 'tacahiroy/ctrlp-funky'
-            Bundle 'terryma/vim-multiple-cursors'
+            Bundle 'powerline/fonts'
+            "quickly move
+            Bundle 'easymotion/vim-easymotion'
+            Bundle 'mbbill/undotree'
+            Bundle 'nathanaelkane/vim-indent-guides'
+            "autosave cursor position and restore it when restart vim
+            Bundle 'vim-scripts/restore_view.vim'
+            "show differences with style
+            Bundle 'mhinz/vim-signify'
+            "create the text obj for ourself
+            Bundle 'kana/vim-textobj-user'
+            Bundle 'kana/vim-textobj-indent'
+            "select text block included by '' \"\" [] () {} in visual mode
+            Bundle 'gcmt/wildfire.vim'
+            Bundle 'scrooloose/nerdcommenter'
+            Bundle 'luochen1990/rainbow'
             if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
                 Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
             elseif exists('g:spf13_use_powerline') && exists('g:spf13_use_old_powerline')
@@ -125,22 +149,9 @@
                 Bundle 'vim-airline/vim-airline'
                 Bundle 'vim-airline/vim-airline-themes'
             endif
-            Bundle 'powerline/fonts'
-            "Bundle 'bling/vim-bufferline'
-            Bundle 'easymotion/vim-easymotion'
-            Bundle 'jistr/vim-nerdtree-tabs'
-            Bundle 'flazz/vim-colorschemes'
-            Bundle 'mbbill/undotree'
-            Bundle 'nathanaelkane/vim-indent-guides'
-            if !exists('g:spf13_no_views')
-                Bundle 'vim-scripts/restore_view.vim'
+            if executable('ctags')
+                Bundle 'majutsushi/tagbar'
             endif
-            Bundle 'mhinz/vim-signify'
-            "Bundle 'tpope/vim-abolish.git'
-            "Bundle 'osyo-manga/vim-over'
-            Bundle 'kana/vim-textobj-user'
-            Bundle 'kana/vim-textobj-indent'
-            Bundle 'gcmt/wildfire.vim'
         endif
     " }
 
@@ -156,17 +167,14 @@
     " General Programming {
         if count(g:spf13_bundle_groups, 'programming')
             " Pick one of the checksyntax, jslint, or syntastic
+            "syntax check tool for almost all language
             Bundle 'scrooloose/syntastic'
+            "git tool in vim
             Bundle 'tpope/vim-fugitive'
-            Bundle 'mattn/webapi-vim'
+            "github gist tool
             Bundle 'mattn/gist-vim'
-            Bundle 'scrooloose/nerdcommenter'
-            Bundle 'tpope/vim-commentary'
-            Bundle 'godlygeek/tabular'
-            Bundle 'luochen1990/rainbow'
-            if executable('ctags')
-                Bundle 'majutsushi/tagbar'
-            endif
+            "interface support for gist-vim
+            Bundle 'mattn/webapi-vim'
         endif
     " }
 
@@ -178,15 +186,18 @@
             if filereadable(expand("~/.vim/bundle/vim-snippets/snippets/support_functions.vim"))
                 source ~/.vim/bundle/vim-snippets/snippets/support_functions.vim
             endif
+        "clang-based engine for C-family language
         elseif count(g:spf13_bundle_groups, 'youcompleteme')
             Bundle 'Valloric/YouCompleteMe'
             Bundle 'SirVer/ultisnips'
             Bundle 'honza/vim-snippets'
+        "slowly
         elseif count(g:spf13_bundle_groups, 'neocomplcache')
             Bundle 'Shougo/neocomplcache'
             Bundle 'Shougo/neosnippet'
             Bundle 'Shougo/neosnippet-snippets'
             Bundle 'honza/vim-snippets'
+        "use Vim 7.3.885 or above with if_lua feature
         elseif count(g:spf13_bundle_groups, 'neocomplete')
             Bundle 'Shougo/neocomplete.vim.git'
             Bundle 'Shougo/neosnippet'

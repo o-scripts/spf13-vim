@@ -40,36 +40,6 @@ endif
 let g:tagbar_width=30
 autocmd BufReadPost *.cpp,*.c,*.h,*.hpp,*.cc,*.cxx,*.lua call tagbar#autoopen()
 
-"cscope
-if has("cscope")
-    set csprg=/usr/bin/cscope
-    set csto=0
-    set cst
-    set nocsverb
-
-    " add any database in current directory
-    if filereadable("cscope.out")
-        cs add cscope.out
-    " else add database pointed to by environment
-    elseif $CSCOPE_DB != ""
-        cs add $CSCOPE_DB
-    endif
-
-    set csverb
-
-    nnoremap F :cs f c <C-R><C-W><CR>
-    nnoremap S :cs f s <C-R><C-W><CR>
-
-"    nmap <C-Space>s :scs find s <C-R>=expand("<cword>")<CR><CR>
-"    nmap <C-Space>g :scs find g <C-R>=expand("<cword>")<CR><CR>
-"    nmap <C-Space>c :scs find c <C-R>=expand("<cword>")<CR><CR>
-"    nmap <C-Space>t :scs find t <C-R>=expand("<cword>")<CR><CR>
-"    nmap <C-Space>e :scs find e <C-R>=expand("<cword>")<CR><CR>
-"    nmap <C-Space>f :scs find f <C-R>=expand("<cfile>")<CR><CR>
-"    nmap <C-Space>i :scs find i <C-R>=expand("<cfile>")<CR><CR>
-"    nmap <C-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR>
-endif
-
 map <silent> <F2> :NERDTreeTabsToggle<CR>
 map <silent> <F3> :TagbarToggle<CR>
 map <silent> <F4> :call BufferList()<CR>
@@ -101,15 +71,34 @@ let g:mwDefaultHighlightingPalette = 'maximum'
 vmap <Leader>a <Plug>(EasyAlign)
 nmap <Leader>a <Plug>(EasyAlign)
 
+"ctags
+set tags=./tags;,tags
+
+"neocomplete
+" RE-Enable heavy omni completion.
+if count(g:spf13_bundle_groups, 'neocomplete')
+    let g:neocomplete#enable_at_startup = 1
+    "nnoremap <Leader>c :NeoCompleteEnable<CR>
+    if !exists('g:neocomplete#sources#omni#input_patterns')
+        let g:neocomplete#sources#omni#input_patterns = {}
+    endif
+    if exists('g:neocomplete#cpp')
+        let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+        let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+    else
+        let g:neocomplete#sources#omni#input_patterns.c = ''
+        let g:neocomplete#sources#omni#input_patterns.cpp = ''
+    endif
+endif
+
 "normal
 inoremap jk <Esc>jk
 nnoremap <S-l> $
 nnoremap <S-h> ^
 nnoremap <Leader>ff <C-w>>10
 nnoremap <Leader>aa <C-w><10
-nnoremap <Leader>f :/<C-R><C-W><CR>
 nnoremap <Leader>g 1<C-g>
 set wrap
 set nolist
 set mouse=n
-
+filetype plugin on
