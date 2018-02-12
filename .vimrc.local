@@ -102,3 +102,5 @@ set wrap
 set nolist
 set mouse=n
 filetype plugin on
+
+set path=;/workspace/git/eaizhao/spitfire;/workspace/git/eaizhao/spitfire2
