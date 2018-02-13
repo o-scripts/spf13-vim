@@ -200,8 +200,11 @@
         "use Vim 7.3.885 or above with if_lua feature
         elseif count(g:spf13_bundle_groups, 'neocomplete')
             Bundle 'Shougo/neocomplete.vim.git'
+            " snippet tool
             Bundle 'Shougo/neosnippet'
+            " snippet repo
             Bundle 'Shougo/neosnippet-snippets'
+            " snippet tool and repo
             Bundle 'honza/vim-snippets'
         endif
     " }

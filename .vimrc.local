@@ -44,7 +44,7 @@ map <silent> <F2> :NERDTreeTabsToggle<CR>
 map <silent> <F3> :TagbarToggle<CR>
 map <silent> <F4> :call BufferList()<CR>
 map <silent> <F5> :UndotreeToggle<CR>
-map <silent> <F7> :call ChangeBasePath()<CR>
+"map <silent> <F7> :call ChangeBasePath()<CR>
 map <silent> <F8> :call OpenF()<CR>
 map <leader>p :call OpenF()<CR>
 
@@ -103,4 +103,15 @@ set nolist
 set mouse=n
 filetype plugin on
 
-set path=;/workspace/git/eaizhao/spitfire;/workspace/git/eaizhao/spitfire2
+" cscope update the db connection
+function CsUpdate()
+    let l:csfile=findfile("cscope.out", ".;")
+    if l:csfile=="cscope.out"
+        let l:csfile=printf("%s/cscope.out", getcwd())
+    endif
+    if filereadable(l:csfile)
+        cs kill -1
+        execute "cs" "add" l:csfile
+    endif
+endfunction
+nnoremap <silent><Leader>s :call CsUpdate()<CR>
