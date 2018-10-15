@@ -120,7 +120,7 @@
             Bundle 'bronson/vim-trailing-whitespace'
             Bundle 'junegunn/vim-easy-align'
             Bundle 'altercation/vim-colors-solarized'
-            Bundle 'dimasg/vim-mark'
+            Bundle 'JasonAi1989/vim-mark'
             Bundle 'scrooloose/nerdtree'
             Bundle 'jistr/vim-nerdtree-tabs'
             Bundle 'tpope/vim-repeat'
