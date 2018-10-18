@@ -152,6 +152,9 @@
             if executable('ctags')
                 Bundle 'majutsushi/tagbar'
             endif
+            if executable('zeal')
+                Bundle 'KabbAmine/zeavim.vim'
+            endif
         endif
     " }
 
