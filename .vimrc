@@ -1,5 +1,5 @@
 " Modeline and Notes {
-" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+"vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=9 foldmethod=marker spell:
 "
 "                    __ _ _____              _
 "         ___ _ __  / _/ |___ /      __   __(_)_ __ ___
@@ -154,39 +154,39 @@
         augroup END
     endif
 
-	filetype plugin indent on  	" Automatically detect file types.
-	syntax on 					" syntax highlighting
-	set mouse=a					" automatically enable mouse usage
-	"set autochdir 				" always switch to the current file directory.. Messes with some plugins, best left commented out
-	" not every vim is compiled with this, use the following line instead
-	" If you use command-t plugin, it conflicts with this, comment it out.
+    filetype plugin indent on   " Automatically detect file types.
+    syntax on                   " syntax highlighting
+    set mouse=a                 " automatically enable mouse usage
+    "set autochdir              " always switch to the current file directory.. Messes with some plugins, best left commented out
+    " not every vim is compiled with this, use the following line instead
+    " If you use command-t plugin, it conflicts with this, comment it out.
      "autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
-	scriptencoding utf-8
+    scriptencoding utf-8
 
-	" set autowrite                  " automatically write a file when leaving a modified buffer
-	set shortmess+=filmnrxoOtT     	" abbrev. of messages (avoids 'hit enter')
-	set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
-	set virtualedit=onemore 	   	" allow for cursor beyond last character
-	set history=1000  				" Store a ton of history (default is 20)
-	set spell 		 	        	" spell checking on
+    " set autowrite                  " automatically write a file when leaving a modified buffer
+    set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
+    set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
+    set virtualedit=onemore         " allow for cursor beyond last character
+    set history=1000                " Store a ton of history (default is 20)
+    set spell                       " spell checking on
 
-	" Setting up the directories {
-		set backup 						" backups are nice ...
-		set undofile					" so is persistent undo ...
-		set undolevels=1000 "maximum number of changes that can be undone
-		set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+    " Setting up the directories {
+        set backup                      " backups are nice ...
+        set undofile                    " so is persistent undo ...
+        set undolevels=1000 "maximum number of changes that can be undone
+        set undoreload=10000 "maximum number lines to save for undo on a buffer reload
         " Moved to function at bottom of the file
-		"set backupdir=$HOME/.vimbackup//  " but not when they clog .
-		"set directory=$HOME/.vimswap// 	" Same for swap files
-		"set viewdir=$HOME/.vimviews// 	" same for view files
+        "set backupdir=$HOME/.vimbackup//  " but not when they clog .
+        "set directory=$HOME/.vimswap//     " Same for swap files
+        "set viewdir=$HOME/.vimviews//  " same for view files
 
-		"" Creating directories if they don't exist
-		"silent execute '!mkdir -p $HVOME/.vimbackup'
-		"silent execute '!mkdir -p $HOME/.vimswap'
-		"silent execute '!mkdir -p $HOME/.vimviews'
-		au BufWinLeave * silent! mkview  "make vim save view (state) (folds, cursor, etc)
-		au BufWinEnter * silent! loadview "make vim load view (state) (folds, cursor, etc)
-	" }
+        "" Creating directories if they don't exist
+        "silent execute '!mkdir -p $HVOME/.vimbackup'
+        "silent execute '!mkdir -p $HOME/.vimswap'
+        "silent execute '!mkdir -p $HOME/.vimviews'
+        au BufWinLeave * silent! mkview  "make vim save view (state) (folds, cursor, etc)
+        au BufWinEnter * silent! loadview "make vim load view (state) (folds, cursor, etc)
+    " }
 
 " }
 
@@ -245,8 +245,8 @@
     set scrolljump=5                " Lines to scroll when cursor leaves screen
     set scrolloff=3                 " Minimum lines to keep above and below cursor
     set foldenable                  " Auto fold code
-"    set list
-"    set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+    set list
+    set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
 " }
 
@@ -328,11 +328,11 @@
         map <C-H> <C-W>h<C-W>_
     endif
 
-	" Easier moving in tabs and windows
-	map <C-J> <C-W>j<C-W>_
-	map <C-K> <C-W>k<C-W>_
-	map <C-L> <C-W>l<C-W>_
-	map <C-H> <C-W>h<C-W>_
+    " Easier moving in tabs and windows
+    map <C-J> <C-W>j<C-W>_
+    map <C-K> <C-W>k<C-W>_
+    map <C-L> <C-W>l<C-W>_
+    map <C-H> <C-W>h<C-W>_
 
     " Wrapped lines goes down/up to next row, rather than next line in file.
     noremap j gj
