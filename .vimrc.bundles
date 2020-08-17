@@ -1,5 +1,5 @@
 " Modeline and Notes {
-" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=99 foldmethod=marker spell:
 "
 "                    __ _ _____              _
 "         ___ _ __  / _/ |___ /      __   __(_)_ __ ___
@@ -91,7 +91,7 @@
     " In your .vimrc.before.local file
     " list only the plugin groups you will use
     if !exists('g:spf13_bundle_groups')
-        let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'php', 'ruby', 'python', 'javascript', 'html', 'misc',]
+        let g:spf13_bundle_groups=['general', 'writing', 'neocomplete', 'programming', 'cpp', 'php', 'ruby', 'python',  'scala',  'go', 'javascript', 'html', 'misc',]
     endif
 
     " To override all the included bundles, add the following to your
@@ -126,6 +126,8 @@
             Bundle 'easymotion/vim-easymotion'
             Bundle 'o-scripts/vim-nerdtree-tabs'
             Bundle 'flazz/vim-colorschemes'
+            Bundle 'o-scripts/vim-nerdtree-syntax-highlight'
+            Bundle 'o-scripts/vim-devicons'
             Bundle 'mbbill/undotree'
             Bundle 'nathanaelkane/vim-indent-guides'
             if !exists('g:spf13_no_views')
@@ -163,6 +165,12 @@
             if executable('ctags')
                 Bundle 'majutsushi/tagbar'
             endif
+        endif
+    " }
+
+    " General cpp {
+        if count(g:spf13_bundle_groups, 'cpp')
+            Bundle 'o-scripts/cpp-mode'
         endif
     " }
 
@@ -269,7 +277,7 @@
 
     " Go Lang {
         if count(g:spf13_bundle_groups, 'go')
-            "Bundle 'Blackrush/vim-gocode'
+            Bundle 'Blackrush/vim-gocode'
             Bundle 'fatih/vim-go'
         endif
     " }

@@ -1,5 +1,5 @@
 " Modeline and Notes {
-" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=99 foldmethod=marker spell:
 "
 "                    __ _ _____              _
 "         ___ _ __  / _/ |___ /      __   __(_)_ __ ___
@@ -99,6 +99,7 @@
         "set term=$TERM          " Make arrow and other keys work
     " endif
     filetype plugin indent on   " Automatically detect file types.
+    syntax enable
     syntax on                   " Syntax highlighting
     set mouse=a                 " Automatically enable mouse usage
     set mousehide               " Hide the mouse cursor while typing
@@ -237,7 +238,7 @@
 
 " Formatting {
 
-    set nowrap                      " Do not wrap long lines
+    "set nowrap                      " Do not wrap long lines
     set autoindent                  " Indent at the same level of the previous line
     set shiftwidth=4                " Use indents of 4 spaces
     set expandtab                   " Tabs are spaces, not tabs
@@ -550,6 +551,17 @@
         endif
     " }
 
+    " cpp {
+        if isdirectory(expand("~/.vim/bundle/cpp-mode"))
+            nnoremap <leader>y :CopyCode<cr>
+            nnoremap <leader>p :PasteCode<cr>
+            nnoremap <leader>U :GoToFunImpl<cr>
+            nnoremap <silent> <leader>a :Switch<cr>
+            nnoremap <leader><leader>fp :FormatFunParam<cr>
+            nnoremap <leader><leader>if :FormatIf<cr>
+        endif
+    " }
+
     " Ctags {
         set tags=./tags;/,~/.vimtags
 
@@ -586,6 +598,16 @@
             let NERDTreeShowHidden=1
             let NERDTreeKeepTreeInNewTab=1
             let g:nerdtree_tabs_open_on_gui_startup=0
+
+            " nerdtree highlight
+            nnoremap <silent> <leader>n :NERDTreeToggle<cr>
+            let g:NERDTreeFileExtensionHighlightFullName = 1
+            let g:NERDTreeExactMatchHighlightFullName = 1
+            let g:NERDTreePatternMatchHighlightFullName = 1
+            let g:NERDTreeHighlightFolders = 1
+            let g:NERDTreeHighlightFoldersFullName = 1
+            let g:NERDTreeDirArrowExpandable='▷'
+            let g:NERDTreeDirArrowCollapsible='▼'
         endif
     " }
 
@@ -1051,6 +1073,18 @@
         " See `:echo g:airline_theme_map` for some more choices
         " Default in terminal vim is 'dark'
         if isdirectory(expand("~/.vim/bundle/vim-airline-themes/"))
+
+            " let g:airline_theme="onedark"
+            " let g:airline_powerline_fonts = 1
+            " let g:airline#extensions#tabline#enabled = 1
+            " if !exists('g:airline_symbols')
+            "     let g:airline_symbols = {}
+            " endif
+            " let g:airline_left_sep = ''
+            " let g:airline_left_alt_sep = ''
+            " let g:airline_right_sep = ''
+            " let g:airline_right_alt_sep = ''
+
             if !exists('g:airline_theme')
                 let g:airline_theme = 'solarized'
             endif
@@ -1059,6 +1093,7 @@
                 let g:airline_left_sep='›'  " Slightly fancier than '>'
                 let g:airline_right_sep='‹' " Slightly fancier than '<'
             endif
+
         endif
     " }
 
